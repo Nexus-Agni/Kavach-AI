@@ -37,8 +37,10 @@ services:
     environment:
       - DATABASE_URL=postgresql://postgres:password@postgres:5432/kavach?schema=public
       - PORT=3000
+      - REDIS_URL=redis://redis:6379
     depends_on:
       - postgres
+      - redis
 
   webapp:
     build:

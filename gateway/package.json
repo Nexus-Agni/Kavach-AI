@@ -9,16 +9,18 @@
     "db:migrate": "prisma migrate dev"
   },
   "dependencies": {
-    "express": "^4.19.2",
-    "pg": "^8.11.5",
     "@prisma/adapter-pg": "^5.14.0",
-    "@prisma/client": "^5.14.0"
+    "@prisma/client": "^5.14.0",
+    "bullmq": "^6.3.11",
+    "express": "^4.19.2",
+    "ioredis": "^6.0.0",
+    "pg": "^8.11.5"
   },
   "devDependencies": {
-    "typescript": "^5.4.5",
     "@types/express": "^4.17.21",
     "@types/node": "^20.12.12",
+    "prisma": "^5.14.0",
     "ts-node": "^10.9.2",
-    "prisma": "^5.14.0"
+    "typescript": "^5.4.5"
   }
 }
