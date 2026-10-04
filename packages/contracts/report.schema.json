@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AnalysisReport",
+  "type": "object",
+  "properties": {
+    "reportId": { "type": "string" },
+    "repoUrl": { "type": "string" },
+    "riskScore": { "type": "integer" },
+    "summary": { "type": "string" },
+    "dependencies": {
+      "type": "object",
+      "properties": {
+        "findings": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "secrets": {
+      "type": "object",
+      "properties": {
+        "findings": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "sast": {
+      "type": "object",
+      "properties": {
+        "findings": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "iac": {
+      "type": "object",
+      "properties": {
+        "findings": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "ciCdSecurity": {
+      "type": "object",
+      "properties": {
+        "findings": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "supplyChainPosture": {
+      "type": "object",
+      "properties": {
+        "checks": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "repoHygiene": {
+      "type": "object",
+      "properties": {
+        "healthPercentage": { "type": "number" },
+        "missingFiles": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "sbom": {
+      "type": "object",
+      "properties": {
+        "format": { "type": "string" },
+        "componentCount": { "type": "integer" },
+        "ref": { "type": "string" }
+      }
+    },
+    "licenseReport": {
+      "type": "object",
+      "properties": {
+        "findings": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "partial": { "type": "boolean" },
+        "nodeErrors": { "type": "object", "additionalProperties": { "type": "string" } }
+      }
+    },
+    "generatedAt": { "type": "string", "format": "date-time" }
+  },
+  "required": ["reportId", "repoUrl", "riskScore", "summary", "dependencies", "secrets", "sast", "iac", "meta", "generatedAt"]
+}

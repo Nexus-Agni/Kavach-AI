@@ -27,12 +27,12 @@ services:
       - qdrant_data:/qdrant/storage
 
   gateway:
-    build: 
-      context: ./gateway
+    build:
+      context: ./apps/gateway
     ports:
       - "3000:3000"
     volumes:
-      - ./gateway:/app
+      - ./apps/gateway:/app
       - /app/node_modules
     environment:
       - DATABASE_URL=postgresql://postgres:password@postgres:5432/kavach?schema=public
@@ -44,11 +44,11 @@ services:
 
   webapp:
     build:
-      context: ./webapp
+      context: ./apps/webapp
     ports:
       - "5173:5173"
     volumes:
-      - ./webapp:/app
+      - ./apps/webapp:/app
       - /app/node_modules
     environment:
       - VITE_API_URL=http://localhost:3000

@@ -1,0 +1,23 @@
+{
+  "name": "kavach",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Kavach — agentic security analysis platform",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.4"
+  },
+  "packageManager": "npm@11.19.0",
+  "engines": {
+    "node": ">=20"
+  }
+}
