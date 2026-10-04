@@ -5,3 +5,4 @@ CONTEXT.md
 PID.md
 skills-lock.json
 node_modules
+gateway/dist/
