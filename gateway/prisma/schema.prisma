@@ -7,10 +7,18 @@ generator client {
   provider = "prisma-client-js"
 }
 
+enum Status {
+  PENDING
+  CLONING
+  ANALYZING
+  DONE
+  FAILED
+}
+
 model Project {
   id        String   @id @default(uuid())
   githubUrl String
-  status    String   @default("PENDING")
+  status    Status   @default(PENDING)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   reports   AnalysisReport[]
@@ -20,7 +28,7 @@ model AnalysisReport {
   id        String   @id @default(uuid())
   projectId String
   project   Project  @relation(fields: [projectId], references: [id])
-  status    String   @default("PENDING")
+  status    Status   @default(PENDING)
   score     Int?
   findings  Json?
   createdAt DateTime @default(now())
