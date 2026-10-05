@@ -1,19 +1,23 @@
 import { Router } from 'express';
-import { prisma } from './db';
+import { prisma } from '@kavach/db';
 import { repoQueue } from './queue';
 
 export const router = Router();
 
 router.post('/projects', async (req, res) => {
-  const { githubUrl } = req.body;
+  const { githubUrl, userId } = req.body;
   if (!githubUrl || typeof githubUrl !== 'string') {
     return res.status(400).json({ error: 'githubUrl is required and must be a string' });
+  }
+  if (!userId || typeof userId !== 'string') {
+    return res.status(400).json({ error: 'userId is required and must be a string' });
   }
 
   try {
     const project = await prisma.project.create({
       data: {
         githubUrl,
+        userId,
         status: 'PENDING',
         reports: {
           create: {
@@ -26,7 +30,7 @@ router.post('/projects', async (req, res) => {
       }
     });
 
-    const [firstReport] = project.reports;
+    const firstReport = project.reports[0];
 
     await repoQueue.add('new_repo_job', {
       projectId: project.id,

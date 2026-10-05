@@ -28,12 +28,10 @@ services:
 
   gateway:
     build:
-      context: ./apps/gateway
+      context: .
+      dockerfile: apps/gateway/Dockerfile
     ports:
       - "3000:3000"
-    volumes:
-      - ./apps/gateway:/app
-      - /app/node_modules
     environment:
       - DATABASE_URL=postgresql://postgres:password@postgres:5432/kavach?schema=public
       - PORT=3000
@@ -44,12 +42,10 @@ services:
 
   webapp:
     build:
-      context: ./apps/webapp
+      context: .
+      dockerfile: apps/webapp/Dockerfile
     ports:
       - "5173:5173"
-    volumes:
-      - ./apps/webapp:/app
-      - /app/node_modules
     environment:
       - VITE_API_URL=http://localhost:3000
     depends_on:

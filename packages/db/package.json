@@ -1,0 +1,26 @@
+{
+  "name": "@kavach/db",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:migrate:dev": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^5.14.0",
+    "@prisma/client": "^5.22.0",
+    "@types/pg": "^8.23.1",
+    "dotenv": "^16.4.5",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "prisma": "^5.22.0",
+    "typescript": "^5.4.5"
+  }
+}

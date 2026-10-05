@@ -2,6 +2,7 @@
   "name": "kavach",
   "version": "0.0.0",
   "private": true,
+  "packageManager": "npm@11.19.0",
   "description": "Kavach — agentic security analysis platform",
   "workspaces": [
     "apps/*",

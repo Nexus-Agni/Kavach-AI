@@ -1,5 +1,5 @@
 import express from 'express';
-import { prisma } from './db';
+import { prisma } from '@kavach/db';
 import { router as projectRoutes } from './routes';
 
 const app = express();
