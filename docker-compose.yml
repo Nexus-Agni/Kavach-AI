@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   postgres:
     image: postgres:16-alpine
@@ -40,6 +39,19 @@ services:
       - postgres
       - redis
 
+  scraper:
+    build:
+      context: .
+      dockerfile: apps/scraper/Dockerfile
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - GATEWAY_URL=http://gateway:3000
+      - ANALYSIS_ENGINE_URL=http://analysis-engine:8000
+    volumes:
+      - repo_workspace:/repos
+    depends_on:
+      - redis
+
   webapp:
     build:
       context: .
@@ -55,3 +67,4 @@ volumes:
   postgres_data:
   redis_data:
   qdrant_data:
+  repo_workspace:
