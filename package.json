@@ -12,7 +12,8 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "clean": "turbo run clean"
+    "clean": "turbo run clean",
+    "check:workspaces": "node scripts/check-workspaces.js"
   },
   "devDependencies": {
     "turbo": "^2.5.4"
