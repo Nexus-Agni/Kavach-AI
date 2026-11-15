@@ -6,6 +6,7 @@ CONTEXT.md
 PID.md
 skills-lock.json
 AGENTS.md
+CODING_STANDARDS.md
 
 # Environment
 .env
@@ -19,6 +20,13 @@ node_modules
 # Build outputs
 dist/
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
 
 # OS
 .DS_Store

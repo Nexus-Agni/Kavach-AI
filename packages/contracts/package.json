@@ -5,6 +5,7 @@
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "scripts": {
+    "clean": "rm -rf dist",
     "build": "tsc",
     "generate:types": "json-schema-to-typescript report.schema.json -o report.d.ts"
   },

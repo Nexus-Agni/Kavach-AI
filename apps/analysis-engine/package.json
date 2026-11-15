@@ -1,0 +1,14 @@
+{
+  "name": "@kavach/analysis-engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kavach analysis engine service",
+  "scripts": {
+    "clean": "find . -type f -name '*.py[cod]' -delete && find . -type d -name '__pycache__' -delete && rm -rf .pytest_cache dist",
+    "dev": "python3 main.py",
+    "build": "mkdir -p dist && cp -r main.py dist/ && python3 -m compileall dist",
+    "start": "python3 main.py",
+    "lint": "python3 -m py_compile main.py",
+    "test": "python3 -m unittest discover tests"
+  }
+}

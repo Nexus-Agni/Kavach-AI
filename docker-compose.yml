@@ -52,6 +52,17 @@ services:
     depends_on:
       - redis
 
+  analysis-engine:
+    build:
+      context: .
+      dockerfile: apps/analysis-engine/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+    volumes:
+      - repo_workspace:/repos
+
   webapp:
     build:
       context: .

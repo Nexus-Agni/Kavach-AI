@@ -1,0 +1,2 @@
+# Kavach Analysis Engine dependencies
+# FastAPI, LangGraph, Qdrant, etc. are added in Ticket 09
